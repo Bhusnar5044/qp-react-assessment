@@ -1,28 +1,14 @@
 import Button from '@/components/common/Button';
 import { DropDown } from '@/components/common/DropDown';
-import { InputText, InputTextArea } from '@/components/common/FormInputs';
-import { useBoard } from '@/context/BoardContext';
-import { BoardSubtask } from '@/types/generalTypes';
-import { Control, Controller, FieldArrayWithId, FieldValues, Path, SubmitHandler, UseFormRegister, useFieldArray, useForm } from 'react-hook-form';
-
-//@ts-expect-error imported library not supporting types.
 import { FormInputList } from '@/components/common/FormInputs';
+import { InputText } from '@/components/common/FormInputs/InputText';
+import { InputTextArea } from '@/components/common/FormInputs/InputTextArea';
 import PopupLayout from '@/components/common/PopupLayout';
+import { useBoard } from '@/context/BoardContext';
+import { Controller, SubmitHandler, useFieldArray, useForm } from 'react-hook-form';
 import { v4 as createUUID } from 'uuid';
-import { TaskFormProps } from '../Board';
-
-export type TaskFormFields = {
-  title: string;
-  description: string;
-  subtaskList: BoardSubtask[];
-  status: string;
-  id: string;
-};
-
-type formDisplay = {
-  title: string;
-  button: string;
-};
+import { TaskFormProps } from '../Board/types';
+import { TaskFormFields, formDisplay } from './types';
 
 const formTypeDisplay: Record<string, formDisplay> = {
   'create/task': {
@@ -49,7 +35,7 @@ export function TaskForm({ formType, formData }: TaskFormProps) {
     defaultValues: {
       title: formData?.title || '',
       description: formData?.description || '',
-      subtaskList: formData?.subtasks?.filter((subtask) => subtask.title) || [{ title: '', isCompleted: false, id: createUUID() }],
+      subtaskList: formData?.subtasks?.filter((subtask: { title: string }) => subtask.title) || [{ title: '', isCompleted: false, id: createUUID() }],
       status: formData?.status || statusList[0],
       id: formData?.id || createUUID(),
     },
@@ -131,19 +117,3 @@ export function TaskForm({ formType, formData }: TaskFormProps) {
     </PopupLayout>
   );
 }
-
-export type FormInputListType<T extends FieldValues> = {
-  fields: FieldArrayWithId<T>[];
-  register: UseFormRegister<T>;
-  showErrors: (index: number) => boolean;
-  label: (index: number) => Path<T>;
-  onAppend: () => void;
-  onRemove: (index: number) => void;
-  formOptions: {
-    heading: string;
-    appendButtonText: string;
-  };
-  colorPickerLabel?: (index: number) => Path<T>;
-  colorPicker?: boolean;
-  control?: Control<T>;
-};

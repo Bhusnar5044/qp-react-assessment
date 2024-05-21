@@ -1,5 +1,5 @@
+import { FormInputListType } from '@/components/Board/BoardComponents/TaskForm/types';
 import { Controller, FieldValues } from 'react-hook-form';
-import { FormInputListType } from '../../Board/BoardComponents/TaskForm';
 import Button from '../Button';
 import { ColorPickerInput } from '../ColorPicker/ColorPickerInput';
 import Icons from '../Icons';
