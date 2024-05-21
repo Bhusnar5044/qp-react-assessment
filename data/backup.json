@@ -1,0 +1,69 @@
+{
+  "boards": [
+    {
+      "name": "Demo Tasks",
+      "columns": [
+        {
+          "name": "TODO",
+          "color": "#49C4E5",
+          "tasks": [
+            {
+              "id": "taskid-21",
+              "title": "Task Title 1",
+              "description": "task 1 description",
+              "status": "",
+              "subtasks": [
+                {
+                  "id": "taskid-21-1",
+                  "title": "sub task 1",
+                  "isCompleted": false
+                },
+                {
+                  "id": "taskid-21-2",
+                  "title": "sub task 2",
+                  "isCompleted": false
+                }
+              ]
+            },
+            {
+              "id": "taskid-22",
+              "title": "Dummy Task 2",
+              "description": "Dummy Task 2 description",
+              "status": "",
+              "subtasks": [
+                {
+                  "id": "taskid-22-1",
+                  "title": "sub task 1",
+                  "isCompleted": false
+                },
+                {
+                  "id": "taskid-22-2",
+                  "title": "sub task 2",
+                  "isCompleted": false
+                },
+                {
+                  "id": "taskid-22-3",
+                  "title": "sub task 3",
+                  "isCompleted": false
+                }
+              ]
+            }
+          ],
+          "id": "boardid-3-col-1"
+        },
+        {
+          "name": "Incomplete",
+          "color": "#8471F2 ",
+          "tasks": [],
+          "id": "boardid-3-col-2"
+        },
+        {
+          "name": "Complete",
+          "color": "#67E2AE",
+          "tasks": [],
+          "id": "boardid-3-col-3"
+        }
+      ]
+    }
+  ]
+}
