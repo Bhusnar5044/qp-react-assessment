@@ -1,9 +1,9 @@
 import { useNavbar } from '@/context/NavbarContext';
 import { useViewportWidth } from '@/hooks/useViewportWidth';
-import Navbar from '@/layout/Navbar';
+import BoardNavbar from '@/layout/BoardNavbar';
 import type { ChildrenProp } from '@/types/generalTypes';
 
-const TodoLayout = ({ children }: ChildrenProp) => {
+const BoardLayout = ({ children }: ChildrenProp) => {
   const { showSidebar } = useNavbar();
   const { screenType } = useViewportWidth();
   return (
@@ -12,10 +12,10 @@ const TodoLayout = ({ children }: ChildrenProp) => {
         showSidebar && screenType === 'desktop' ? 'grid-cols-[18.75rem_minmax(0_,1fr)]' : 'grid-cols-[minmax(0_,1fr)]'
       } h-full min-h-screen overflow-hidden`}
     >
-      {showSidebar && <Navbar />}
+      {showSidebar && <BoardNavbar />}
       {children}
     </div>
   );
 };
 
-export default TodoLayout;
+export default BoardLayout;
