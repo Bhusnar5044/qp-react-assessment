@@ -6,7 +6,7 @@ interface IThemeContext {
   toggleTheme: () => void;
 }
 
-export const ThemeContext = React.createContext<IThemeContext>({
+const ThemeContext = React.createContext<IThemeContext>({
   theme: 'light',
   toggleTheme: () => console.error('no theme provider'),
 } as IThemeContext);
@@ -15,12 +15,13 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-export const ThemeProvider = ({ children }: ThemeProviderProps) => {
+const ThemeProvider = ({ children }: ThemeProviderProps) => {
   const [theme, setTheme] = React.useState<string>('light');
 
   const toggleTheme = React.useCallback(() => {
     const updatedTheme = theme === 'light' ? 'dark' : 'light';
     setTheme(updatedTheme);
+    document.documentElement.dataset.theme = updatedTheme;
     window.localStorage.setItem('theme', updatedTheme);
   }, [theme]);
 
@@ -39,16 +40,11 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     }
   }, [theme]);
 
-  const providerValue = React.useMemo(
-    () => ({ theme, toggleTheme }),
-    [theme, toggleTheme]
-  );
+  const providerValue = React.useMemo(() => ({ theme, toggleTheme }), [theme, toggleTheme]);
 
-  return (
-    <ThemeContext.Provider value={providerValue}>
-      {children}
-    </ThemeContext.Provider>
-  );
+  return <ThemeContext.Provider value={providerValue}>{children}</ThemeContext.Provider>;
 };
 
-export const useTheme = () => React.useContext<IThemeContext>(ThemeContext);
+const useTheme = () => React.useContext<IThemeContext>(ThemeContext);
+
+export { ThemeContext, ThemeProvider, useTheme };
