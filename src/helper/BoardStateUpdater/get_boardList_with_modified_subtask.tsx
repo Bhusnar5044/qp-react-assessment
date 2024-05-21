@@ -1,6 +1,4 @@
 import { BoardData, BoardSubtask } from '@/types/generalTypes';
-
-//@ts-expect-error : lodash clone deep import issue
 import cloneDeep from 'lodash.clonedeep';
 
 type updateSubtaskDependencies = {

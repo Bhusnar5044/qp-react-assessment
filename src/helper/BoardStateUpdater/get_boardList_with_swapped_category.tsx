@@ -1,6 +1,4 @@
 import { BoardData, BoardTask } from '@/types/generalTypes';
-
-//@ts-expect-error : lodash clone deep import issue
 import cloneDeep from 'lodash.clonedeep';
 import { removeElementFromArray } from '../helper';
 

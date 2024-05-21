@@ -1,4 +1,3 @@
-//@ts-expect-error : lodash clone deep import issue
 import { BoardData } from '@/types/generalTypes';
 import cloneDeep from 'lodash.clonedeep';
 
