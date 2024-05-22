@@ -1,6 +1,6 @@
 import { ShowSidebar } from '@/components/common/ShowSidebar';
 import { useBoard } from '@/context/BoardContext';
-import { BoardHeading } from '../../../../layout/BoardHeading';
+import { BoardHeading } from '@/layout/BoardHeading';
 import { BoardFormModal } from '../../BoardFormModal';
 import { BoardContent } from '../BoardContent';
 
