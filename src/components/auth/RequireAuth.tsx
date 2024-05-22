@@ -1,3 +1,4 @@
+import { useAuth } from '@/context/AuthProvider';
 import { Navigate } from 'react-router-dom';
 
 type PrivateRouteProps = {
@@ -7,7 +8,8 @@ type PrivateRouteProps = {
 
 const RequireAuth = ({ children, redirectTo = '/login' }: PrivateRouteProps) => {
   // add your own authentication logic here
-  const isAuthenticated = true;
+  const { tokens } = useAuth();
+  const isAuthenticated = tokens?.access_token;
 
   return isAuthenticated ? (children as React.ReactElement) : <Navigate to={redirectTo} />;
 };

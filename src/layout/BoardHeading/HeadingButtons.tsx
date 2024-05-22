@@ -2,6 +2,7 @@ import Button from '@/components/common/Button';
 import Icons from '@/components/common/Icons';
 import { KebabMenu } from '@/components/common/KebabMenu';
 import ThemeToggle from '@/components/theme-toggle';
+import { useAuth } from '@/context/AuthProvider';
 import { useBoard } from '@/context/BoardContext';
 import { useViewportWidth } from '@/hooks/useViewportWidth';
 import { MouseEventHandler } from 'react';
@@ -10,6 +11,10 @@ import { ConfirmationDeleteBoardModal } from './ConfirmationDeleteBoardModal';
 export const HeadingButtons = () => {
   const { screenType } = useViewportWidth();
   const { boardData, dispatch, showBoardDeleteConfirmation } = useBoard();
+  const { logout } = useAuth();
+  const handleLogout = () => {
+    logout?.();
+  };
 
   const handleAction: MouseEventHandler = (e) => {
     const actionType = (e.target as HTMLButtonElement).dataset.action;
@@ -45,6 +50,9 @@ export const HeadingButtons = () => {
         </button>
         <button className="text-red cursor-pointer hover:text-redhover" data-action={'delete'} onClick={handleAction}>
           Delete Board
+        </button>
+        <button onClick={handleLogout} className="text-secondary cursor-pointer hover:text-primary">
+          Logout
         </button>
       </KebabMenu>
     </>

@@ -15,10 +15,11 @@ export const routes: Array<PathRouteProps> = [
     path: '/login',
     element: <Login />,
   },
+];
+
+export const privateRoutes: Array<PathRouteProps> = [
   {
     path: '/todo-board',
     element: <TodoBoardDashboard />,
   },
 ];
-
-export const privateRoutes: Array<PathRouteProps> = [];
