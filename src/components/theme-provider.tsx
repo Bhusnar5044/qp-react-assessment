@@ -27,6 +27,7 @@ const ThemeProvider = ({ children }: ThemeProviderProps) => {
 
   React.useEffect(() => {
     const localTheme = window.localStorage.getItem('theme');
+    document.documentElement.dataset.theme = localTheme ?? 'light';
     if (localTheme) {
       setTheme(localTheme);
     }
