@@ -39,7 +39,7 @@ pnpm dev
 
 - `pnpm install`
 
-- Run the json server `pnpm server`
+- Run the json server `pnpm run server`
 
 - Run the application `pnpm dev`
 
