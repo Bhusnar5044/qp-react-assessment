@@ -41,6 +41,7 @@ export const KebabMenu: FC<ChildrenProp> = ({ children }) => {
   return (
     <div className="relative kebab-menu z-20">
       <div
+        title="kebab menu"
         className="p-2 cursor-pointer"
         onClick={() => {
           setIsOpen((current) => !current);
