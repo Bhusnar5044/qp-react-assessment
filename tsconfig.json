@@ -20,8 +20,9 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "paths": {
-      "@/*": ["./*"]
+      "@/*": ["./*"],
     },
+    "types": ["vitest/globals"],
 
     /* Linting */
     "noUnusedLocals": true,
