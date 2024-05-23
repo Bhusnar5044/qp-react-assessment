@@ -1,4 +1,4 @@
-import { Loader } from '@/components/common/Loader';
+import { Loader1 } from '@/components/common/Loader/Loader1';
 import { urls } from '@/constant/urls';
 import { useAuth } from '@/context/AuthProvider';
 import { cn } from '@/styles/utils';
@@ -119,7 +119,7 @@ export const Login = () => {
                   isDisabled || isLoading ? 'cursor-not-allowed text-gray-300' : ''
                 )}
               >
-                {isLoading ? <Loader /> : 'Sign in'}
+                {isLoading ? <Loader1 /> : 'Sign in'}
               </button>
               <p className="text-sm font-light text-gray-500 dark:text-gray-400">
                 Don’t have an account yet?{' '}
