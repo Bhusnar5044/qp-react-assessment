@@ -34,3 +34,17 @@ pnpm dev
   - [avoid manual import](https://vitejs.dev/guide/features.html#jsx)
 - [TailwindCSS](https://tailwindcss.com/)
 - [TypeScript](https://www.typescriptlang.org)
+
+## How to Run the app
+
+- `pnpm install`
+
+- Run the json server `pnpm server`
+
+- Run the application `pnpm dev`
+
+## Login Credentials
+
+- email: `john@mail.com`
+
+- password: `changeme`
